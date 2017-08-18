@@ -33,6 +33,31 @@ function convertirDecimal10aN(base10, baseN) {
     }
 }
 
+function concatenarNa10(numero, baseN) {
+	var res = numero.toString().split(".");
+    var entero = convertirEnteroNa10(res[0], baseN);
+    var decimal = convertirDecimalNa10("0." + res[1], baseN);
+    return entero + decimal;
+}
+
+function convertirEnteroNa10(numero, baseN) {
+	var respuesta = 0;
+	var potencia = numero.length - 1;
+	for (var i = 0; i = numero.length ; i++) {
+		respuesta +=  numero[i] * Math.pow(baseN, potencia)
+		potencia--;
+	}
+	return respuesta
+}
+
+function convertirDecimalNa10(numero, baseN) {
+	var respuesta = 0;
+	for (var i = 2; i = numero.length ; i++) {
+		respuesta +=  numero[i] * Math.pow(baseN, -1 * (i-1)))
+	}
+	return respuesta;
+}
+
 
 /**
  * función anonima temporal de ejecución
