@@ -1,7 +1,12 @@
-small{
+small, input, select{
     display: block;
+
 }
 
-container, p{
-    color: #000;
+#output{
+    display: none;
+}
+
+p{
+    size: 30em;
 }
