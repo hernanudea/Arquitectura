@@ -100,7 +100,18 @@ function cambiarBaseDestino() {
     } else {
         baseDestino.selectedIndex = 0;
     }
+}
 
+function cambiarBaseDestino2(){
+    var baseOrigen = document.getElementById("baseOrigen");
+    var baseDestino = document.getElementById("baseDestino");
+    if (baseDestino.value == 7) {
+        baseOrigen.selectedIndex = 2;
+    } else if (baseDestino.value == 10) {
+        baseOrigen.selectedIndex = 1;
+    } else {
+        baseOrigen.selectedIndex = 0;
+    }
 }
 
 function limpiar() {
