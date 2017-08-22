@@ -79,14 +79,15 @@ function esNumero(num) {
     }
 }
 
-(function () {
-    var num = 8524.4;
-    var base = 7;
-    var numN = 4567;
+function cambiarBaseDestino(){
+    var baseOrigen = document.getElementById("baseOrigen");
+    var baseDestino = document.getElementById("baseDestino");
 
-    document.getElementById("base7").innerHTML = concatenar10aN(num, base);
-    document.getElementById("base10").innerHTML = concatenarNa10(numN, base);
-
-})();
-
-
+    if(baseOrigen.value == 7){
+        baseDestino.selectedIndex = 2;
+    } else if(baseOrigen.value == 10) {
+        baseDestino.selectedIndex = 1;
+    }else{
+        baseDestino.selectedIndex = 0;
+    }
+}
