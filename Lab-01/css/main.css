@@ -1,12 +1,22 @@
-small, input, select{
-    display: block;
-
+html {
+    size: 16px;
 }
 
-#output{
+small, input, select {
+    display: block;
+}
+
+.respuesta {
+    background-color: #353535;
+    font-size: 3em;
+    color: #fff;
     display: none;
 }
 
-p{
-    size: 30em;
+.container, p.text-center {
+    font-size: 1em;
+}
+
+.autores {
+    background-color: #363636;
 }

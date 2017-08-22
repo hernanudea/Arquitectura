@@ -1,5 +1,6 @@
-function concatenar10aN(numBase10, baseN) {
+var mostrarRespuesta = false;
 
+function concatenar10aN(numBase10, baseN) {
     var arrayNum = numBase10.toString().split(".");
     var entero = convertirEntero10aN(arrayNum[0], baseN);
     if (isNaN(arrayNum[1])) {
@@ -79,16 +80,54 @@ function esNumero(num) {
     }
 }
 
-function cambiarBaseDestino(){
+function cambiarBaseDestino() {
+    var baseOrigen = document.getElementById("baseOrigen");
+    var baseDestino = document.getElementById("baseDestino");
+    if (baseOrigen.value == 7) {
+        baseDestino.selectedIndex = 2;
+    } else if (baseOrigen.value == 10) {
+        baseDestino.selectedIndex = 1;
+    } else {
+        baseDestino.selectedIndex = 0;
+    }
+}
+
+function limpiar() {
+    mostrarRespuesta = false;
+    mostrarResultado();
+}
+
+function convertir() {
+    mostrarRespuesta = true
+    mostrarResultado();
+
+    var numero = document.getElementById("numero");
     var baseOrigen = document.getElementById("baseOrigen");
     var baseDestino = document.getElementById("baseDestino");
 
-    if(baseOrigen.value == 7){
-        baseDestino.selectedIndex = 2;
-    } else if(baseOrigen.value == 10) {
-        baseDestino.selectedIndex = 1;
-    }else{
-        baseDestino.selectedIndex = 0;
-    }
+    var rNumero = document.getElementById("rNumero");
+    var rBaseOrigen = document.getElementById("rBaseOrigen");
+    var rRespuesta = document.getElementById("rRespuesta");
+    var rBaseDestino = document.getElementById("rBaseDestino");
 
+    if (baseDestino.value == 7){
+        rNumero.innerHTML = numero.value;
+        rBaseOrigen.innerHTML = baseOrigen.value;
+        rRespuesta.innerHTML = concatenarNa10(numero.value, baseOrigen.value);
+        rBaseDestino.innerHTML = baseDestino.value;
+    }
+    if (baseDestino.value == 10){
+        rNumero.innerHTML = numero.value;
+        rBaseOrigen.innerHTML = baseOrigen.value;
+        rRespuesta.innerHTML = concatenar10aN(numero.value, baseOrigen.value);
+        rBaseDestino.innerHTML = baseDestino.value;
+    }
+}
+
+function mostrarResultado() {
+    if (mostrarRespuesta) {
+        document.getElementById("respuesta").style.display = 'block';
+    } else {
+        document.getElementById("respuesta").style.display = 'none';
+    }
 }
