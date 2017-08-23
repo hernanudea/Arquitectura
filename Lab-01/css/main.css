@@ -19,4 +19,9 @@ small, input, select {
 
 .autores {
     background-color: #363636;
+    color: #80bdff;
+}
+
+.card-img-bottom {
+    width: 90px;
 }

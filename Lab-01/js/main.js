@@ -8,7 +8,6 @@ function concatenar10aN(numBase10, baseN) {
     } else {
         var decimal = convertirDecimal10aN("0." + arrayNum[1], baseN);
     }
-    alert(numBase10);
     return entero + decimal;
 }
 
@@ -61,8 +60,8 @@ function convertirEnteroNa10(numero, baseN) {
     var potencia = numero.length - 1;
     for (var i = 0; i < numero.length; i++) {
         var resultadoBaseExponente = Math.pow(baseN, potencia);
-        var numeroIterado=numero[i];
-        respuestaBase10 += numeroIterado*resultadoBaseExponente;
+        var numeroIterado = numero[i];
+        respuestaBase10 += numeroIterado * resultadoBaseExponente;
         potencia--;
     }
     return respuestaBase10;
@@ -77,7 +76,7 @@ function convertirDecimalNa10(numero, baseN) {
 }
 
 function esNumero(num) {
-    if(!validarBase7()){
+    if (!validarBase7()) {
         aplicarValidación();
     }
 
@@ -92,7 +91,7 @@ function cambiarBaseDestino() {
     var baseDestino = document.getElementById("baseDestino");
     if (baseOrigen.value == 7) {
         baseDestino.selectedIndex = 2;
-        if(!validarBase7()){
+        if (!validarBase7()) {
             aplicarValidación();
         }
     } else if (baseOrigen.value == 10) {
@@ -102,7 +101,7 @@ function cambiarBaseDestino() {
     }
 }
 
-function cambiarBaseDestino2(){
+function cambiarBaseDestino2() {
     var baseOrigen = document.getElementById("baseOrigen");
     var baseDestino = document.getElementById("baseDestino");
     if (baseDestino.value == 7) {
@@ -120,30 +119,34 @@ function limpiar() {
 }
 
 function convertir() {
-    mostrarRespuesta = true
-    mostrarResultado();
-
     var numero = document.getElementById("numero");
     var baseOrigen = document.getElementById("baseOrigen");
     var baseDestino = document.getElementById("baseDestino");
 
     var rNumero = document.getElementById("rNumero");
     var rBaseOrigen = document.getElementById("rBaseOrigen");
-    var rRespuesta = document.getElementById("rRespuesta");
     var rBaseDestino = document.getElementById("rBaseDestino");
+    var rRespuesta = document.getElementById("rRespuesta");
+    if (numero.value === "" || baseOrigen.value == 0 || baseDestino.value == 0) {
+        alert("Todos los campos son obligatorios, debe llenarlos")
+    } else {
+        mostrarRespuesta = true
+        mostrarResultado();
+        if (baseDestino.value == 7) {
+            rNumero.innerHTML = numero.value;
+            rBaseOrigen.innerHTML = baseOrigen.value;
+            rRespuesta.innerHTML = concatenar10aN(numero.value, 7);
+            rBaseDestino.innerHTML = baseDestino.value;
+        }
+        if (baseDestino.value == 10) {
+            rNumero.innerHTML = numero.value;
+            rBaseOrigen.innerHTML = baseOrigen.value;
+            rRespuesta.innerHTML = concatenarNa10(numero.value, 7);
+            rBaseDestino.innerHTML = baseDestino.value;
+        }
+    }
 
-    if (baseDestino.value == 7){
-        rNumero.innerHTML = numero.value;
-        rBaseOrigen.innerHTML = baseOrigen.value;
-        rRespuesta.innerHTML = concatenar10aN(numero.value, 7);
-        rBaseDestino.innerHTML = baseDestino.value;
-    }
-    if (baseDestino.value == 10){
-        rNumero.innerHTML = numero.value;
-        rBaseOrigen.innerHTML = baseOrigen.value;
-        rRespuesta.innerHTML = concatenarNa10(numero.value, 7);
-        rBaseDestino.innerHTML = baseDestino.value;
-    }
+    var rBaseDestino = document.getElementById("rBaseDestino");
 }
 
 function mostrarResultado() {
@@ -154,14 +157,14 @@ function mostrarResultado() {
     }
 }
 
-function validarBase7(){
+function validarBase7() {
     var numero = document.getElementById("numero").value;
     var baseOrigen = document.getElementById("baseOrigen");
     var arrayNumero = numero.toString().split(".");
     var numeroCorrecto = true;
-    if (baseOrigen.value == 7){
+    if (baseOrigen.value == 7) {
         for (var i = 0; i < arrayNumero[0].length; i++) {
-            if(arrayNumero[0].toString()[i] >= 7){
+            if (arrayNumero[0].toString()[i] >= 7) {
                 numeroCorrecto = false;
             }
         }
@@ -169,7 +172,7 @@ function validarBase7(){
     return numeroCorrecto;
 }
 
-function aplicarValidación(){
+function aplicarValidación() {
     alert("Solo puede usar numeros de 0 a 6");
     document.getElementById("numero").value = "";
     document.getElementById("baseOrigen").selectedIndex = 0;

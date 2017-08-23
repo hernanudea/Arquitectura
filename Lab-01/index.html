@@ -14,9 +14,17 @@
 <body>
 <div class="jumbotron">
     <div class="container">
-        <h1 class="text-center">Arquitectura de Computadores
-            <small>Universidad de Antioquia</small>
-        </h1>
+        <div class="row">
+            <div class="col-2">
+                <img class="card-img-bottom" src="../assets/img/udea.png" alt="">
+            </div>
+            <div class="col-10">
+                <h1 class="text-center">Arquitectura de Computadores
+                    <small>Universidad de Antioquia</small>
+                </h1>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -26,7 +34,7 @@
         <div class="form-group row">
             <label for="numero" class="col-2 col-form-label">Número a convertir:</label>
             <div class="col-10">
-                <input onBlur="esNumero(this.value)" class="form-control" type="number"  id="numero"
+                <input onBlur="esNumero(this.value)" class="form-control" type="number" id="numero"
                        placeholder="Ingrese el numero a convertir">
             </div>
         </div>
@@ -53,10 +61,11 @@
         <div class="form-group row center-b">
 
             <div class="col-2"></div>
-            <div class="col-9">
-                <input class=" btn btn-outline-success" type="button" value="Convertir a" onclick="convertir()">
+            <div class="col-8">
+                <input id="botonConvertir" class=" btn btn-outline-success" type="button" value="Convertir"
+                       onclick="convertir()">
             </div>
-            <div class="col-1">
+            <div class="col-2">
                 <input class="text-left btn btn-outline-danger" type="reset" value="Limpiar" onclick="limpiar()">
             </div>
         </div>
@@ -71,8 +80,8 @@
 </div>
 <div class="autores">
     <div class="container">
-        <p style="color:#80bdff" class="text-right">Juan Gabriel Velásquez O.</p>
-        <p style="color:#80bdff" class="text-right">Hernán Darío Velásquez O.</p>
+        <p class="text-right">Juan Gabriel Velásquez O.</p>
+        <p class="text-right">Hernán Darío Velásquez O.</p>
     </div>
 </div>
 
